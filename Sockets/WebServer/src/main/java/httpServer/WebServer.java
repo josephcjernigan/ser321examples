@@ -61,6 +61,8 @@ public class WebServer {
                 response = "<html>Illegal request: no GET</html>".getBytes();
             } else {
                 File file = new File("www/" + filename); // Ensure this is the correct path
+                System.out.println("Looking for file: " + file.getAbsolutePath());
+
                 if (!file.exists()) {
                     response = ("<html>File not found: " + filename + "</html>").getBytes();
                 } else {
