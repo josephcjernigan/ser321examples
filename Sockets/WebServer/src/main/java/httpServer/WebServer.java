@@ -22,8 +22,13 @@ public class WebServer {
                      InputStream in = sock.getInputStream();
                      OutputStream out = sock.getOutputStream()) {
 
+                    System.out.println("Accepted connection from " + sock.getInetAddress());
+
                     byte[] response = createResponse(in);
                     out.write(response);
+                    out.flush();
+
+                    System.out.println("Response sent");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
